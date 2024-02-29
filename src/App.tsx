@@ -1,12 +1,9 @@
 import './App.css';
 import { Page } from './Page/Page';
 import { AppStateProvider } from './state/AppStateContext';
-import { createPage } from './utils/createPage';
 import { Route, Routes } from 'react-router-dom';
 import { Auth } from './auth/Auth';
 import { Private } from './auth/Private';
-
-const initialState = createPage();
 
 function App() {
 
@@ -17,7 +14,7 @@ function App() {
         path='/:id' 
         element={
           <Private component={
-            <AppStateProvider initialState={initialState}>
+            <AppStateProvider>
               <Page />
             </AppStateProvider>
           } />
@@ -27,7 +24,7 @@ function App() {
         path='/' 
         element={
           <Private component={
-            <AppStateProvider initialState={initialState}>
+            <AppStateProvider>
               <Page />
             </AppStateProvider>
           } />
